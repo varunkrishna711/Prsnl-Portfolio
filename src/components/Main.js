@@ -147,7 +147,7 @@ const Main = () => {
                 </Center>
 
 
-                <Contact target="_blank" to={{pathname:"mailto:varunkrishnachess@gamil.com"}}>
+                <Contact target="_blank" to={{pathname:"mailto:varunkrishnachess@gmail.com"}}>
                     <motion.h2
                         initial = {{
                             y: -200,

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Me from "../assets/Images/profile-img.png";
+import Me2 from "../assets/Images/profile2.png";
 import {motion} from 'framer-motion';
 
 const Box = styled(motion.div)`
@@ -44,7 +45,7 @@ const SubBox = styled.div`
         bottom: 0;
         left: 50%;
         transform: translate(-50%,0%);
-        width: 100%;
+        width: 125%;
         height: auto;
     }
 `
@@ -92,7 +93,7 @@ const Intro = () => {
                     animate={{opacity: 1}}
                     transition={{duration:1,delay:2}}
                 >
-                    <img className="pic" src={Me} alt="Profile Pic" />
+                    <img className="pic" src={Me2} alt="Profile Pic" />
                 </motion.div>
             </SubBox>
         </Box>

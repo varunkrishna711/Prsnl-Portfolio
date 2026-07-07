@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Me from "../assets/Images/profile-img.png";
-import Me2 from "../assets/Images/profile2.png";
+import AIArt from "../subComponents/AIArt";
 import {motion} from 'framer-motion';
 
 const Box = styled(motion.div)`
@@ -30,8 +29,6 @@ const Box = styled(motion.div)`
 
         border-left: 2px solid ${props => props.theme.body};
         border-right: 2px solid ${props => props.theme.text};
-
-       
 
         z-index: 1;
 `
@@ -79,11 +76,8 @@ const Intro = () => {
                 <Text>
                     <h1>Hi,</h1>
                     <h3>I'm Varun Krishna</h3>
-                    <p>I am a full-stack developer who is constantly trying to explore new domains. My conceptual knowledge in understanding both the front-end and back-end of web applications
-                          makes me a valuable asset to any team. My comprehensive understanding of web development technologies such as HTML, CSS, JavaScript, 
-                          and server-side languages allows me to take projects from conception to deployment. Apart from this, I am person who likes to explore 
-                          further more into different domains. To begin with, I have built a few projects based on data  analytics. Thus, if, even though my
-                          experience is less in any domain, I will try my level best to learn and implement the concept</p>
+                    <h6>Full Stack Engineer & GenAI Developer</h6>
+                    <p>I build scalable backend services (FastAPI, Node.js) and production-grade GenAI pipelines with 2 years of experience. Specializing in agentic systems using LangChain, LangGraph, and RAG architectures, I combine robust data engineering (PySpark, Delta Lake) with modern frontends (React, Next.js, Tailwind CSS) to deliver complete, high-performance applications.</p>
                 </Text>
             </SubBox>
 
@@ -92,8 +86,9 @@ const Intro = () => {
                     initial={{opacity:0}}
                     animate={{opacity: 1}}
                     transition={{duration:1,delay:2}}
+                    style={{ height: '100%', width: '100%', position: 'relative' }}
                 >
-                    <img className="pic" src={Me2} alt="Profile Pic" />
+                    <AIArt />
                 </motion.div>
             </SubBox>
         </Box>

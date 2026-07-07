@@ -215,3 +215,22 @@ return (
 
 }
 
+export const Microchip = (props) => {
+  return (
+    <svg
+      aria-hidden="true"
+      data-prefix="fas"
+      data-icon="microchip"
+      className="prefix__svg-inline--fa prefix__fa-microchip prefix__fa-w-14"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 448 512"
+      {...props}
+    >
+      <path
+        fill={props.fill}
+        d="M432 224h-16v-48c0-26.5-21.5-48-48-48h-48V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v112H192V16c0-8.8-7.2-16-16-16h-32c-8.8 0-16 7.2-16 16v112H80c-26.5 0-48 21.5-48 48v48H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h16v64H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h16v48c0 26.5 21.5 48 48 48h48v112c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368h64v112c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V368h48c26.5 0 48-21.5 48-48v-48h16c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm-80 96c0 8.8-7.2 16-16 16H112c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16h224c8.8 0 16 7.2 16 16v128z"
+      />
+    </svg>
+  );
+}
+

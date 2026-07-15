@@ -1,67 +1,73 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import img from "../assets/Images/patrick-tomasso-Oaqk7qqNh_c-unsplash.jpg";
+import React from "react";
+import styled, { ThemeProvider } from "styled-components";
+import { lightTheme } from "./Themes";
 import LogoComponent from "../subComponents/LogoComponent";
 import SocialIcons from "../subComponents/SocialIcons";
 import PowerButton from "../subComponents/PowerButton";
-
-import {Blogs} from "../data/BlogData";
-import BlogComponent from "./BlogComponent";
-import AnchorComponent from "../subComponents/Anchor";
+import ParticleComponent from "../subComponents/ParticleComponent";
 import BigTitle from "../subComponents/BigTitlte";
 import { motion } from "framer-motion";
 
 const MainContainer = styled(motion.div)`
-    background-image: url(${img});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-   
-`
-
-const Container = styled.div`
-    background-color: ${props => `rgba(${props.theme.bodyRgba},0.8)`};
-    width: 100%;
-    height: auto;
-
+    background-color: ${props => props.theme.body};
+    width: 100vw;
+    height: 100vh;
     position: relative;
-    padding-bottom: 5rem;
-`
-
-const Center = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 10rem;
+    overflow: hidden;
 `
 
-const Grid = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2, minmax(calc(10rem + 15vw), 1fr));
-    grid-gap: calc(1rem + 2vw);
+const Container = styled.div`
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
-const Maintenance = styled.div`
-    position: absolute;
-    top: 400px;
-    left: 550px;
-    width: 750px;
-    height: 250px;
-    border: 5px solid black;
-`
-const Content = styled.div `
-    position: absolute;
-    top: 75px;
-    left: 50px;
-    font-size: 60px;
-    font-family: "Lucida Console", "Courier New", monospace;
 
+const Card = styled.div`
+    border: 2px solid ${props => props.theme.text};
+    color: ${props => props.theme.text};
+    background-color: ${props => props.theme.body};
+    padding: 3rem;
+    width: 40vw;
+    height: 25vh;
+    z-index: 3;
+    cursor: pointer;
+
+    font-family: 'Ubuntu Mono', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+        color: ${props => props.theme.body};
+        background-color: ${props => props.theme.text};
+    }
+
+    @media (max-width: 768px) {
+        width: 70vw;
+        height: 20vh;
+    }
 `
+
+const Text = styled.h1`
+    font-size: calc(0.8rem + 1.5vw);
+    text-align: center;
+    font-weight: 700;
+    letter-spacing: 2px;
+`
+
 const container = {
-    hidden: {opacity:0},
+    hidden: { opacity: 0 },
     show: {
         opacity: 1,
-
         transition: {
             staggerChildren: 0.5,
             duration: 0.5,
@@ -70,45 +76,32 @@ const container = {
 }
 
 const BlogPage = () => {
-
-    const [numbers, setNumbers] = useState(0);
-
-    useEffect(() => {
-        let num = (window.innerHeight - 70)/30;
-        setNumbers(parseInt(num));
-    },[])
     return ( 
-        <MainContainer
-            variants={container}
-            initial='hidden'
-            animate='show'
-            exit={{
-                opacity:0, transition:{duration:0.5}
-            }}
-        >
-            <Container>
-                <LogoComponent />
-                <PowerButton />
-                <SocialIcons />
-                <AnchorComponent number={numbers} />
+        <ThemeProvider theme={lightTheme}>
+            <MainContainer
+                variants={container}
+                initial='hidden'
+                animate='show'
+                exit={{
+                    opacity: 0, transition: { duration: 0.5 }
+                }}
+            >
+                <Container>
+                    <LogoComponent theme='light' />
+                    <PowerButton />
+                    <SocialIcons theme='light' />
+                    <ParticleComponent theme='light' />
 
-                {/* <Center>
-                    <Grid>
-                       {
-                        Blogs.map(blog => {
-                            return <BlogComponent key={blog.id} blog={blog}/>
-                        })
-                       }
-                    </Grid>
-                </Center> */}
-                <Maintenance>
-                    <Content>
-                        NO BLOGS PRESENT YET!!!!
-                    </Content>
-                </Maintenance>
-                <BigTitle text="BLOG" top="5rem" left="5rem" />
-            </Container>
-        </MainContainer>
+                    <Card>
+                        <Text>
+                            NO BLOGS PRESENT YET!!!!
+                        </Text>
+                    </Card>
+
+                    <BigTitle text="BLOG" top="5rem" left="5rem" />
+                </Container>
+            </MainContainer>
+        </ThemeProvider>
      );
 }
  
